@@ -18,9 +18,9 @@ def is_tele(maybe_a_tele):
             print(val, "is a phone number")
         elif re.match(r"^\+[380]\d", val) and len(val) == 13:
             print(val, "is a phone number")
-        elif re.match(r"[380]\d", val) and len(val) == 12:
+        elif re.match(r"^[380]\d", val) and len(val) == 12:
             print(val, "is a phone number")
-        elif re.match(r"[1-9]\d", val) and len(val) == 7:
+        elif re.match(r"^[1-9]\d", val) and len(val) == 7:
             print(val, "is a local phone number")
         else:
             print(val, "is NOT a phone number")
@@ -38,7 +38,7 @@ def is_mail(maybe_a_email):
 
 def is_fio(maybe_a_fio):
     for val in maybe_a_fio:
-       if re.match(r"^[a-z]{2,20}\s[a-z]{2,20}\s[a-z]{2,20}$", val):
+       if re.match(r"^[a-zA-Z]{2,20}\s[a-zA-Z]{2,20}\s[a-zA-Z]{2,20}$", val):
            print(val, "is a FIO")
        else:
            print(val, "is NOT a FIO")
@@ -47,7 +47,7 @@ try:
 
     maybe_phone = ["+38050112233", "+380671112233", "0671112233", "1234567891234", "1204567", "0000000"]
     maybe_email = ["@asd.net", "aaaa_123@gmail.com", "3@gmail.com"]
-    maybe_fio = ["abc abc abc", "a abc abc", "555 abc abc", "abc abc ccccccccccccccccccccc"]
+    maybe_fio = ["abc abc abc", "abC aBc Abc", "a abc abc", "555 abc abc", "abc abc ccccccccccccccccccccc"]
     is_tele(maybe_phone)
     is_mail(maybe_email)
     is_fio(maybe_fio)
